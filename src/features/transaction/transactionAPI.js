@@ -28,7 +28,7 @@ export const getTransactions = async (currentPage, limit, type, serachKey) => {
 
 export const addTransaction = async (data) => {
     const response = await axios.post("/transactions", data);
-
+    // console.log("API Response", response.data)
     return response.data;
 };
 

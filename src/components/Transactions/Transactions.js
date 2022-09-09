@@ -7,23 +7,20 @@ import Transaction from "./Transaction";
 export default function Transactions() {
     const dispatch = useDispatch();
     let location = useLocation();
+    let pathname = location.pathname;
     // console.log(location)
 
-    const { transactions, isLoading, isError, filters, pagination } = useSelector(
+    const { transactions, isLoading, isError, filters, pagination, message } = useSelector(
         (state) => state.transaction
     );
-    const {currentPage, limit} = pagination;
+    let {currentPage, limit} = pagination;
     const {type, serachKey} = filters;
+
+    
    
-
-    // useEffect(() => {
-       
-    //     dispatch(fetchTransactions({currentPage, limit, type, serachKey}))
-    // }, [dispatch, currentPage, limit, type, serachKey]);
-
     useEffect(() => {
         dispatch(fetchTransactions({ currentPage, limit, type, serachKey}));
-    }, [dispatch, currentPage, limit, type, serachKey]);
+    }, [dispatch, currentPage, limit, type, serachKey, message]);
 
     // decide what to render
     let content = null;

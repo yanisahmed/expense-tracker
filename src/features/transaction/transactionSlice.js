@@ -20,7 +20,8 @@ const initialState = {
     filters: {
         type: '',
         serachKey: '',
-    }
+    },
+    message:'',
 };
 
 // async thunks
@@ -36,6 +37,7 @@ export const createTransaction = createAsyncThunk(
     "transaction/createTransaction",
     async (data) => {
         const transaction = await addTransaction(data);
+        // console.log("add an item", transaction)
         return transaction;
     }
 );
@@ -113,7 +115,8 @@ const transactionSlice = createSlice({
             .addCase(createTransaction.fulfilled, (state, action) => {
                 state.isError = false;
                 state.isLoading = false;
-                state.transactions.push(action.payload);
+                state.transactions.unshift(action.payload);
+                state.message = "Data Added";
             })
             .addCase(createTransaction.rejected, (state, action) => {
                 state.isLoading = false;

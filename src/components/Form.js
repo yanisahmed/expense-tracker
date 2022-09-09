@@ -14,8 +14,12 @@ export default function Form() {
     const [editMode, setEditMode] = useState(false);
 
     const dispatch = useDispatch();
-    const { isLoading, isError } = useSelector((state) => state.transaction);
+    const { isLoading, isError, filters, pagination } = useSelector((state) => state.transaction);
     const { editing } = useSelector((state) => state.transaction) || {};
+
+    const {currentPage, limit} = pagination;
+    const filterType = filters.type;
+    const serachKey = filters.serachKey;
 
   
     useEffect(() => {
@@ -30,7 +34,7 @@ export default function Form() {
             setEditMode(false);
             reset();
         }
-    }, [editing, ]);
+    }, [editing]);
 
     const reset = () => {
         setName("");
@@ -47,6 +51,7 @@ export default function Form() {
                 amount: Number(amount),
             })
         );
+        // dispatch(fetchTransactions({currentPage, limit, filterType, serachKey}));
         reset();
         
     };
