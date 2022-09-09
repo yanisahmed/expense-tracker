@@ -61,11 +61,11 @@ export default function Pagination() {
     return (
         <>
             <div className="pagination">
-                <a href="" onClick={handlePrev}>&laquo;</a>
+                <span onClick={handlePrev}>&laquo;</span>
                 {
-                    transactions.map((transaction, index) => (index < totalPages && <a  href="" className={currentPage === index + 1 ? 'active' : null} onClick={() =>linkHandler(index+1)}>{index + 1}</a>))
+                    transactions.map((transaction, index) => (index < totalPages && <span className={currentPage === index + 1 ? 'active' : null} onClick={() =>linkHandler(index+1)}>{index + 1}</span>))
                 }
-                <a  href="" onClick={handleNext}>&raquo;</a>
+                <span onClick={handleNext}>&raquo;</span>
             </div>
             {location.pathname === "/" ? (
                 <div>

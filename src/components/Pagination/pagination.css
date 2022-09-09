@@ -2,7 +2,7 @@
     display: inline-block;
   }
   
-  .pagination a {
+  .pagination span {
     color: black;
     float: left;
     padding: 8px 16px;
@@ -10,20 +10,20 @@
     border: 1px solid #ddd;
   }
   
-  .pagination a.active {
+  .pagination span.active {
     background-color: #4CAF50;
     color: white;
     border: 1px solid #4CAF50;
   }
   
-  .pagination a:hover:not(.active) {background-color: #ddd; cursor: pointer;}
+  .pagination span:hover:not(.active) {background-color: #ddd; cursor: pointer;}
   
-  .pagination a:first-child {
+  .pagination span:first-child {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
   }
   
-  .pagination a:last-child {
+  .pagination span:last-child {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
   }
