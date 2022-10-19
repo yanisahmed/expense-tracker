@@ -24,10 +24,10 @@ export default function Transaction({ transaction }) {
             <p>{name}</p>
             <div className="right">
                 <p>৳ {numberWithCommas(amount)}</p>
-                <button className="link" onClick={handleEdit}>
+                <button className="link edit" onClick={handleEdit}>
                     <img alt="Edit" className="icon" src={editImage} />
                 </button>
-                <button className="link" onClick={handleDelete}>
+                <button className="link delete" onClick={handleDelete}>
                     <img alt="Delete" className="icon" src={deleteImage} />
                 </button>
             </div>

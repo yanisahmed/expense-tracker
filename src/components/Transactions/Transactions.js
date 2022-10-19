@@ -50,7 +50,7 @@ export default function Transactions() {
             <p className="second_heading">Your Transactions:</p>
 
             <div className="conatiner_of_list_of_transactions">
-                <ul>{content}</ul>
+                <ul className="transList">{content}</ul>
             </div>
         </>
     );
